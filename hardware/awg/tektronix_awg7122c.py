@@ -357,7 +357,6 @@ class AWG7122C(Base, PulserInterface):
                                 then the channel association is invoked from
                                 the sequence generation,
                                 i.e. the filename appendix (_Ch1, _Ch2 etc.)
-
         @return int: error code (0:OK, -1:error)
 
         Unused for digital pulse generators without sequence storage capability

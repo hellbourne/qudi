@@ -252,7 +252,7 @@ class SamplesWriteMethods():
                     # write the first line, which is the header file, if first chunk is passed:
                     num_bytes = str(int(total_number_of_samples * 5))
                     num_digits = str(len(num_bytes))
-                    header = str.encode('MAGIC 1000\r\n#' + num_digits + num_bytes)
+                    header = str.encode('MAGIC 1000\r\n#' + num_digits + num_bytes)   #### <===== correct ?????
                     wfm_file.write(header)
 
             # now write the samples chunk in binary representation:

@@ -210,15 +210,18 @@ class FastCounterFPGAQO(Base, FastCounterInterface):
             return -1
 
         # Wait until all power-up initialization processes on the FPGA have finished
-        timeout = 5
+        timeout = 15
         start_time = time.time()
         while True:
             if time.time()-start_time >= timeout:
                 self.log.error('Power-on initialization of FPGA-timetagger timed out. '
-                               'Device non-functional.')
+                               'Device non-functional.'
+                               'Try "load fast counter" button in manager/hardware_tab before loading "pulsed measurement gui".'
+                               )
                 self.statusvar = -1
                 break
             status_messages = self._get_status_messages()
+            print(status_messages)
             if len(status_messages) == 2 and ('idle_ready' in status_messages) and (
                 'TDC_in_reset' in status_messages):
                 self.log.info('Power-on initialization of FPGA-timetagger complete.')

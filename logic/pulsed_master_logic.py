@@ -671,7 +671,7 @@ class PulsedMasterLogic(GenericLogic):
         self.sigPulserRunningUpdated.emit(is_running)
         return
 
-    def save_measurement_data(self, controlled_val_unit, save_tag, with_error):
+    def save_measurement_data(self, controlled_val_unit, save_tag, with_error, save_ft):
         """
 
         @param controlled_val_unit:
@@ -679,7 +679,7 @@ class PulsedMasterLogic(GenericLogic):
         @param with_error:
         @return:
         """
-        self._measurement_logic.save_measurement_data(controlled_val_unit, save_tag, with_error)
+        self._measurement_logic.save_measurement_data(controlled_val_unit=controlled_val_unit, tag=save_tag, with_error=with_error, save_ft=save_ft)
         return
 
     def clear_pulse_generator(self):
